@@ -69,9 +69,10 @@ initializeEditor();
 
 // Fonction pour activer/désactiver le menu
 function toggleMenu() {
-  const menu = document.getElementById("menu");
+  const menu = document.getElementById("menu"); // Sélectionne le menu
   menu.classList.toggle("active"); // Ajoute ou supprime la classe 'active'
 }
+
 
 document.addEventListener("click", function (e) {
   const menu = document.getElementById("menu");
