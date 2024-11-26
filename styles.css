@@ -175,3 +175,34 @@ textarea#help-message { width: 100%; height: 150px; background-color: #2d2d2d; c
 .primary-btn:hover {
   background-color: #005fa3;
 }
+
+.forum-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #2d2d2d;
+  color: white;
+  border-radius: 8px;
+}
+
+.forum-post {
+  padding: 15px;
+  background-color: #333;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.forum-post h3 {
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
