@@ -69,8 +69,19 @@ initializeEditor();
 
 // Fonction pour activer/désactiver le menu
 function toggleMenu() {
-  document.getElementById("menu").classList.toggle("active");
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("active"); // Ajoute ou supprime la classe 'active'
 }
+
+document.addEventListener("click", function (e) {
+  const menu = document.getElementById("menu");
+  const menuButton = document.querySelector(".menu-btn");
+
+  if (!menu.contains(e.target) && !menuButton.contains(e.target)) {
+    menu.classList.remove("active");  // Ferme le menu si on clique en dehors
+  }
+});
+
 
 // Vérification de la connexion dans l'éditeur
 window.addEventListener("load", () => {
