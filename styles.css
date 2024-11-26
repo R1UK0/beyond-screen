@@ -1,632 +1,73 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+/* General Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-header {
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/* Body & Background */
+body { font-family: Arial, sans-serif; background-color: #181818; color: white; padding: 20px; }
 
-header h1 {
-  margin: 0;
-}
+h1, h2, h3 { color: #ffffff; }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 10px;
-}
+a { color: #0078d4; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-main {
-  padding: 20px;
-}
+/* Header */
+header { background-color: #333; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+header h1 a { color: white; font-size: 2rem; text-decoration: none; }
+header nav { display: flex; gap: 20px; }
 
-form {
-  max-width: 400px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+header button, header a {
+  color: white; background: none; border: none; cursor: pointer; font-size: 16px; margin-left: 15px;
 }
-
-label {
-  margin-bottom: 5px;
-}
-
-input {
-  margin-bottom: 15px;
-  padding: 8px;
-  font-size: 14px;
-}
-
-button {
-  background-color: #0078d4;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #005fa3;
-}
-
-footer {
-  text-align: center;
-  margin-top: 20px;
-}
+header button:hover, header a:hover { text-decoration: underline; }
 
 /* Editor Container */
-#editor-container {
-    display: flex;
-    height: 80vh;
-  }
-  
-  #code-input {
-    width: 50%;
-    height: 100%;
-    border: 1px solid #ccc;
-    font-family: monospace;
-    font-size: 14px;
-    padding: 10px;
-    resize: none;
-  }
-  
-  #output {
-    width: 50%;
-    height: 100%;
-    border: 1px solid #ccc;
-  }
-  
-  header nav {
-    display: flex;
-    gap: 10px;
-  }
-  
-  header select {
-    padding: 5px;
-  }
-  
-  header button {
-    background-color: #0078d4;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  header button:hover {
-    background-color: #005fa3;
-  }
-  
-  /* Styles pour le lien du nom du site */
-.site-name {
-  text-decoration: none;
-  color: white;
-}
+#editor-container { display: flex; gap: 10px; height: 80vh; margin-top: 30px; }
 
-.site-name:hover {
-  color: #0078d4; /* Change la couleur au survol */
+textarea, iframe {
+  flex: 1; border: 1px solid #444; height: 500px; resize: none; font-family: monospace; font-size: 16px;
 }
+textarea { background-color: #2d2d2d; color: white; padding: 15px; border-radius: 5px; }
+iframe { background-color: #2d2d2d; border-radius: 5px; }
 
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+#output { border: 1px solid #ccc; height: 100%; }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-}
+button { background-color: #0078d4; color: white; border: none; padding: 10px; cursor: pointer; }
+button:hover { background-color: #005fa3; }
 
-header {
-  background-color: #333;
-  color: white;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/* Menu */
+#menu-container { position: relative; }
+.menu-btn { font-size: 30px; background: none; border: none; color: white; cursor: pointer; }
+.menu { display: none; position: absolute; top: 40px; left: 0; background-color: #333; color: white; padding: 10px; border-radius: 5px; }
+.menu ul { list-style: none; padding: 0; }
+.menu ul li { margin: 10px 0; }
+.menu ul li a { color: white; text-decoration: none; }
+.menu.active { display: block; }
 
-header a,
-header button {
-  color: white;
-  text-decoration: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  margin-left: 15px;
-}
-
-header a:hover,
-header button:hover {
-  text-decoration: underline;
-}
-
-h1 a {
-  color: white;
-  text-decoration: none;
-}
-
-main {
-  padding: 20px;
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #333;
-  color: white;
-  margin-top: 20px;
-}
-
-/* Editor Page */
-#editor-container {
-  display: flex;
-  gap: 10px;
-  height: 80vh;
-}
-
-textarea {
-  flex: 1;
-  height: 100%;
-  font-family: monospace;
-  font-size: 14px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  resize: none;
-}
-
-iframe {
-  flex: 1;
-  border: 1px solid #ccc;
-  height: 100%;
-}
-
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body & Background */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #181818; /* Couleur sombre pour le fond */
-  color: white;
-  padding: 20px;
-}
-
-h1, h2, h3 {
-  color: #ffffff;
-}
-
-a {
-  color: #0078d4;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-header {
-  background-color: #333;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header h1 a {
-  color: white;
-  font-size: 2rem;
-  text-decoration: none;
-}
-
-header nav {
-  display: flex;
-  gap: 20px;
-}
-
-header button {
-  background-color: #0078d4;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-header button:hover {
-  background-color: #005fa3;
-}
-
-/* Main Content */
-main {
-  margin-top: 30px;
-}
-
-#editor-container {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-textarea {
-  width: 48%;
-  height: 500px;
-  font-family: monospace;
-  font-size: 16px;
-  padding: 15px;
-  border: 1px solid #444;
-  background-color: #2d2d2d;
-  color: white;
-  border-radius: 5px;
-  resize: none;
-}
-
-iframe {
-  width: 48%;
-  height: 500px;
-  border: 1px solid #444;
-  background-color: #2d2d2d;
-  border-radius: 5px;
-}
-
-footer {
-  margin-top: 40px;
-  text-align: center;
-  background-color: #333;
-  color: white;
-  padding: 10px;
-}
-
-footer a {
-  color: #0078d4;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Form for sending feedback or contacting */
-#help-section {
-  margin-top: 20px;
-}
-
-textarea#help-message {
-  width: 100%;
-  height: 150px;
-  font-family: monospace;
-  padding: 10px;
-  background-color: #2d2d2d;
-  color: white;
-  border: 1px solid #444;
-  border-radius: 5px;
-}
-
-#send-feedback {
-  background-color: #0078d4;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-#send-feedback:hover {
-  background-color: #005fa3;
-}
-
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body & Background */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #181818; /* Couleur sombre pour le fond */
-  color: white;
-  padding: 20px;
-}
-
-h1, h2, h3 {
-  color: #ffffff;
-}
-
-a {
-  color: #0078d4;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Image Hero */
-#hero-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 5px;
-  margin-bottom: 30px;
-}
-
-/* Header and Navigation */
-header {
-  background-color: #333;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header h1 a {
-  color: white;
-  font-size: 2rem;
-  text-decoration: none;
-}
-
-header nav {
-  display: flex;
-  gap: 20px;
-}
-
-header button {
-  background-color: #0078d4;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-header button:hover {
-  background-color: #005fa3;
-}
-
-/* Main Content */
-main {
-  margin-top: 30px;
-}
-
-#help-section {
-  margin-top: 50px;
-}
-
-textarea#help-message {
-  width: 100%;
-  height: 150px;
-  font-family: monospace;
-  padding: 10px;
-  background-color: #2d2d2d;
-  color: white;
-  border: 1px solid #444;
-  border-radius: 5px;
-}
-
-#send-feedback {
-  background-color: #0078d4;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-#send-feedback:hover {
-  background-color: #005fa3;
-}
+.profile-img { width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
+#profile-container { display: flex; align-items: center; gap: 10px; }
 
 /* Footer */
-footer {
-  margin-top: 40px;
-  text-align: center;
-  background-color: #333;
-  color: white;
-  padding: 10px;
-}
+footer { text-align: center; margin-top: 20px; background-color: #333; color: white; padding: 10px; }
+footer a { color: #0078d4; }
+footer a:hover { text-decoration: underline; }
 
-footer a {
-  color: #0078d4;
-}
+/* Hero Image */
+#hero-image img { width: 100%; height: auto; display: block; border-radius: 5px; margin-bottom: 30px; }
 
-footer a:hover {
-  text-decoration: underline;
-}
+/* Form for sending feedback or contacting */
+#help-section { margin-top: 20px; }
+textarea#help-message { width: 100%; height: 150px; background-color: #2d2d2d; color: white; border: 1px solid #444; border-radius: 5px; padding: 10px; }
+#send-feedback { background-color: #0078d4; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
+#send-feedback:hover { background-color: #005fa3; }
 
-#thank-you-message {
-  color: #28a745;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-/* Style pour le bouton "Go to Code Editor" */
+/* Button "Go to Code Editor" */
 .access-editor-btn {
-  display: inline-block;
-  background-color: #0078d4;
-  color: white;
-  padding: 20px 40px;
-  font-size: 18px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  display: inline-block; background-color: #0078d4; color: white; padding: 20px 40px; font-size: 18px; text-align: center;
+  text-decoration: none; border-radius: 50px; margin-top: 30px; cursor: pointer; transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); margin-left: auto; margin-right: auto; display: block;
 }
 
 .access-editor-btn:hover {
-  background-color: #005fa3;
+  background-color: #005fa3; transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Style pour le bouton "Go to Code Editor" */
-.access-editor-btn {
-  display: inline-block;
-  background-color: #0078d4;
-  color: white;
-  padding: 20px 40px;
-  font-size: 18px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 50px;
-  margin-top: 30px;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.access-editor-btn:hover {
-  background-color: #005fa3;
-  transform: translateY(-5px); /* Effet de levée */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
-.access-editor-btn:active {
-  transform: translateY(0); /* Effet d'enfoncement au clic */
-}
-
-/* Style pour les boutons Log In et Sign Up */
-header nav a {
-  display: inline-block;
-  background-color: #333;
-  color: white;
-  padding: 15px 30px;
-  font-size: 16px;
-  text-align: center;
-  border-radius: 5px;
-  margin-left: 15px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  border: 2px solid transparent;
-}
-
-header nav a:hover {
-  background-color: #0078d4;
-  transform: translateY(-5px); /* Effet de levée */
-  border-color: #0078d4;
-}
-
-header nav a:active {
-  transform: translateY(0); /* Effet d'enfoncement au clic */
-}
-
-/* Style pour le rond de la photo de profil */
-.profile-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-#profile-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Style du menu */
-#menu-container {
-  position: relative;
-}
-
-.menu-btn {
-  font-size: 30px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.menu {
-  display: none;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.menu ul {
-  list-style: none;
-}
-
-.menu ul li {
-  margin: 10px 0;
-}
-
-.menu ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.menu ul li a:hover {
-  text-decoration: underline;
-}
-
-.menu.active {
-  display: block;
-}
-
-/* Style du menu */
-#menu-container {
-  position: relative;
-}
-
-.menu-btn {
-  font-size: 30px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.menu {
-  display: none;  /* Le menu est caché par défaut */
-  position: absolute;
-  top: 40px;
-  left: 0;
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.menu ul {
-  list-style: none;
-  padding: 0;
-}
-
-.menu ul li {
-  margin: 10px 0;
-}
-
-.menu ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.menu ul li a:hover {
-  text-decoration: underline;
-}
-
-/* Lorsque le menu a la classe 'active', on l'affiche */
-.menu.active {
-  display: block;
-}
+.access-editor-btn:active { transform: translateY(0); }
