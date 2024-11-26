@@ -73,16 +73,15 @@ function toggleMenu() {
   menu.classList.toggle("active"); // Ajoute ou supprime la classe 'active'
 }
 
-
-document.addEventListener("click", function (e) {
+document.addEventListener("click", function (event) {
   const menu = document.getElementById("menu");
   const menuButton = document.querySelector(".menu-btn");
 
-  if (!menu.contains(e.target) && !menuButton.contains(e.target)) {
-    menu.classList.remove("active");  // Ferme le menu si on clique en dehors
+  // Si le clic est en dehors du menu et du bouton, on ferme le menu
+  if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+    menu.classList.remove("active");
   }
 });
-
 
 // Vérification de la connexion dans l'éditeur
 window.addEventListener("load", () => {
