@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryuko - Code Editor Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div id="menu-container">
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      <div id="menu" class="menu">
+        <ul>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="forum.html">Forum</a></li>
+          <li><a href="help.html">Help</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <h1><a href="index.html">Ryuko</a></h1>
+    <nav>
+      <a href="login.html">Log In</a>
+      <a href="register.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <!-- Image en haut de la page d'accueil -->
+  <section id="hero-image">
+    <img src="images/code-screen.jpg" alt="Code Screen" />
+  </section>
+
+  <main>
+    <section>
+      <h2>About Ryuko</h2>
+      <p>
+        Welcome to **Ryuko**, a dynamic and powerful online platform designed to help you write, test, and refine your code across a variety of programming languages, including <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>Python</strong>, and <strong>PHP</strong>.
+      </p>
+      <br>
+      <p>
+        Whether you’re a beginner taking your first steps in coding or an experienced developer looking for a fast, convenient way to build and experiment, Ryuko has something for everyone. Our platform offers an intuitive, user-friendly interface that lets you focus solely on the code while we handle the environment.
+      </p>
+      <br>
+      <p>
+        <strong>What makes Ryuko special?</strong> We provide you with a real-time coding experience where you can instantly see the results of your work. No more switching between multiple windows or refreshing pages—everything updates automatically as you code. This lets you stay focused on your projects and watch your ideas come to life without interruptions.
+      </p>
+      <p>
+        But that's not all! With Ryuko, you can:
+      </p>
+      <br>
+      <ul>
+        <li><strong>Collaborate with ease</strong>: Share your code with others, or showcase your work to a community of like-minded individuals.</li>
+        <li><strong>Experiment freely</strong>: Test new features and technologies without the hassle of setting up complex environments.</li>
+        <li><strong>Save your progress</strong>: Automatically save your projects and continue where you left off, ensuring that your hard work is never lost.</li>
+        <li><strong>Access a wide range of languages</strong>: Work in multiple programming languages, including front-end and back-end technologies.</li>
+      </ul>
+      <p>
+        Whether you're creating your first HTML page, writing an interactive JavaScript application, or experimenting with server-side code in PHP or Python, Ryuko provides a seamless, integrated environment for all your coding needs. Plus, our platform is continuously updated with new features and improvements to make sure you're always on the cutting edge of web development.
+      </p>
+      <p>
+        So, what are you waiting for? Start coding now, explore the world of programming, experiment with different languages and frameworks, and bring your creative ideas to life. With Ryuko, the possibilities are endless!
+      </p>
+      <p>
+        Join us today and take your coding skills to the next level.
+      </p>
+    </section>
+    
+
+    <!-- Ajout d'un bouton pour accéder à la zone de codage -->
+   <!-- Ajout d'un bouton interactif pour accéder à la zone de codage -->
+    <section>
+      <br>
+      <h2>Ready to start coding?</h2>
+      <p>Click the button below to access the code editor and begin writing your projects in HTML, CSS, JavaScript, and more!</p>
+      <a href="editor.html">
+        <button class="access-editor-btn">Go to Code Editor</button>
+      </a>
+    </section>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Ryuko Code Editor Platform. All rights reserved.</p>
+    <p>Developer: Matis Morfin | Co-developer: Lino Doux</p>
+    <p>Creation Date: January 2024 | Last Update: March 2024 | Version: v1.0.7</p>
+    <p><a href="contact.html">Contact Us</a> | <a href="help.html">Help</a></p>
+  </footer>
+  
+
+  <script>
+    // Supprime l'utilisateur connecté lorsque la page se charge
+    localStorage.removeItem("currentUser");
+
+    // Gestion de l'envoi du message de SAV
+    document.getElementById("send-feedback").addEventListener("click", function() {
+      const message = document.getElementById("help-message").value;
+      if (message) {
+        // Afficher un message temporaire de confirmation
+        document.getElementById("thank-you-message").style.display = "block";
+        setTimeout(function() {
+          document.getElementById("thank-you-message").style.display = "none";
+        }, 5000); // Afficher le message pendant 5 secondes
+        document.getElementById("help-message").value = ''; // Réinitialiser le champ de texte
+      } else {
+        alert("Please enter a message.");
+      }
+    });
+  </script>
+</body>
+</html>

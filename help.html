@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help - Ryuko</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">Ryuko</a></h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Communicate your problems, ideas, and feedback. Please remain cordial 😊</h2>
+      <p>We are happy to help! Please provide us with a detailed message and we will get back to you as soon as possible.</p>
+
+      <!-- Form to submit feedback or inquiries -->
+      <textarea id="help-message" placeholder="Describe your issue or idea here..." required></textarea>
+      <button id="send-feedback">Send Message</button>
+
+      <!-- Temporary message after sending -->
+      <p id="thank-you-message" style="display:none;">Thank you! We will get back to you soon.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Ryuko Code Editor Platform. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("send-feedback").addEventListener("click", function() {
+      const message = document.getElementById("help-message").value;
+      if (message) {
+        // Simulate sending the message (here you can add actual email-sending functionality)
+        document.getElementById("thank-you-message").style.display = "block";
+        setTimeout(function() {
+          document.getElementById("thank-you-message").style.display = "none";
+        }, 5000); // Display the message for 5 seconds
+
+        document.getElementById("help-message").value = ''; // Reset textarea
+      } else {
+        alert("Please enter a message.");
+      }
+    });
+  </script>
+</body>
+</html>
