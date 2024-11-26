@@ -206,3 +206,32 @@ textarea {
   padding: 10px;
   margin-bottom: 10px;
 }
+
+/* Conteneur pour l'image */
+.image-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* L'image occupe toute la largeur */
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Texte sur l'image */
+.image-title {
+  position: absolute;
+  top: 50%; /* Centre verticalement */
+  left: 50%; /* Centre horizontalement */
+  transform: translate(-50%, -50%); /* Ajuste le centrage */
+  font-size: 3rem; /* Taille du texte */
+  font-family: "Fira Code", "Courier New", monospace; /* Police monospace */
+  font-weight: bold; /* Texte en gras */
+  background: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+  padding: 10px 20px; /* Espacement autour du texte */
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre portée */
+}
