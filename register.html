@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
+  <title>Sign Up - Ryuko</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <h1>Sign Up</h1>
+    <h1><a href="index.html">Ryuko</a></h1>
   </header>
 
-  <main>
+  <main class="form-container">
+    <h2>Create your account</h2>
     <form id="register-form">
       <label for="email">Email:</label>
-      <input type="email" id="email" required>
+      <input type="email" id="email" placeholder="you@example.com" required>
 
       <label for="pseudo">Pseudo:</label>
-      <input type="text" id="pseudo" required>
+      <input type="text" id="pseudo" placeholder="Your username" required>
 
       <label for="password">Password:</label>
       <input type="password" id="password" required>
@@ -25,16 +26,14 @@
       <label for="confirm-password">Confirm Password:</label>
       <input type="password" id="confirm-password" required>
 
-      <button type="submit">Create Account</button>
+      <button type="submit" class="primary-btn">Sign Up</button>
     </form>
+    <p>Already have an account? <a href="login.html">Log In</a></p>
   </main>
 
   <footer>
-    <a href="login.html">Already have an account? Log In</a>
+    <p>&copy; 2024 Ryuko</p>
   </footer>
-
-  <script src="register.js"></script>
   <script src="menu.js"></script>
-
 </body>
 </html>
