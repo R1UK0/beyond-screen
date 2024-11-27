@@ -28,6 +28,8 @@
       <input type="password" id="confirm-password" required>
       <div class="g-recaptcha" data-sitekey="6Lf6DosqAAAAAHL_FKQwA725tum17ElfNvkCXoex"></div>
       <form id="register-form" action="register.php" method="POST">
+      $responseKey = $_POST['g-recaptcha-response'];
+
 
       <button type="submit" class="primary-btn">Sign Up</button>
     </form>
