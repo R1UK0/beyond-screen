@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Vérifier si l'utilisateur est déjà connecté en tant qu'administrateur
+// Vérifier si l'utilisateur est déjà connecté
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
     header("Location: admin_dashboard.php");
     exit;
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST["password"];
     if ($password === "adminaccess#MCMff") {
         $_SESSION['admin_logged_in'] = true;
-        header("Location: admin_dashboard.php");
+        header("Location: admin_dashboard.php"); // Rediriger vers le tableau de bord
         exit;
     } else {
         $error = "Invalid password!";
