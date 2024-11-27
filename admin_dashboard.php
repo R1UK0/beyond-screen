@@ -3,28 +3,22 @@ session_start();
 
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header("Location: admin.php");
+    header("Location: admin.php"); // Redirige si l'utilisateur n'est pas connecté
     exit;
 }
 
-// Connexion à la base de données
-try {
-    $pdo = new PDO("mysql:host=localhost;dbname=ryuko_admin", "root", "");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
-}
+// Connexion à la base de données (ajuste les informations de connexion)
+$pdo = new PDO("mysql:host=localhost;dbname=ryuko_admin", "root", "");
 
-// Récupérer les utilisateurs inscrits
+// Récupération des utilisateurs inscrits
 $users = $pdo->query("SELECT email, pseudo, signup_date FROM users")->fetchAll(PDO::FETCH_ASSOC);
 
 // Récupérer les visites du jour
-$visits_today = $pdo->query("SELECT ip_address, visit_time FROM visits WHERE DATE(visit_time) = CURDATE()")->fetchAll(PDO::FETCH_ASSOC);
+$visits_today = $pdo->query("SELECT COUNT(*) as visit_count FROM visits WHERE DATE(visit_time) = CURDATE()")->fetchColumn();
 
 // Récupérer les statistiques globales
 $total_visits = $pdo->query("SELECT COUNT(*) FROM visits")->fetchColumn();
 $total_signups = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
-
 ?>
 
 <!DOCTYPE html>
@@ -33,61 +27,36 @@ $total_signups = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ajouter un peu de style pour rendre le tableau plus joli */
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 8px 12px; border: 1px solid #ccc; }
+        th { background-color: #333; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Admin Dashboard - Ryuko</h1>
-        <nav>
-            <a href="logout.php">Logout</a>
-        </nav>
-    </header>
+    <h1>Admin Dashboard</h1>
 
-    <main>
-        <section>
-            <h2>Statistics</h2>
-            <p>Total Visitors: <?= $total_visits ?? 0; ?></p>
-            <p>Total Signups: <?= $total_signups ?? 0; ?></p>
-            <h3>Today's Visitors: <?= count($visits_today); ?></h3>
-        </section>
+    <p>Total Visitors: <?= $total_visits; ?></p>
+    <p>Total Signups: <?= $total_signups; ?></p>
+    <p>Visitors Today: <?= $visits_today; ?></p>
 
-        <section>
-            <h2>Visitors Today</h2>
-            <table>
-                <tr>
-                    <th>IP Address</th>
-                    <th>Visit Time</th>
-                </tr>
-                <?php foreach ($visits_today as $visit): ?>
-                <tr>
-                    <td><?= htmlspecialchars($visit['ip_address']); ?></td>
-                    <td><?= htmlspecialchars($visit['visit_time']); ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </table>
-        </section>
-
-        <section>
-            <h2>Registered Users</h2>
-            <table>
-                <tr>
-                    <th>Email</th>
-                    <th>Pseudo</th>
-                    <th>Signup Date</th>
-                </tr>
-                <?php foreach ($users as $user): ?>
-                <tr>
-                    <td><?= htmlspecialchars($user['email']); ?></td>
-                    <td><?= htmlspecialchars($user['pseudo']); ?></td>
-                    <td><?= htmlspecialchars($user['signup_date']); ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </table>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Ryuko Code Editor Platform. All rights reserved.</p>
-    </footer>
+    <h2>Registered Users</h2>
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>Pseudo</th>
+            <th>Signup Date</th>
+        </tr>
+        <?php foreach ($users as $user): ?>
+        <tr>
+            <td><?= htmlspecialchars($user['email']); ?></td>
+            <td><?= htmlspecialchars($user['pseudo']); ?></td>
+            <td><?= htmlspecialchars($user['signup_date']); ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
 </body>
 </html>
