@@ -3,14 +3,14 @@ session_start();
 
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header("Location: admin.php"); // Redirige si l'utilisateur n'est pas connecté
+    header("Location: admin.php"); // Rediriger vers la page de connexion si non connecté
     exit;
 }
 
-// Connexion à la base de données (ajuste les informations de connexion)
+// Connexion à la base de données
 $pdo = new PDO("mysql:host=localhost;dbname=ryuko_admin", "root", "");
 
-// Récupération des utilisateurs inscrits
+// Récupérer les utilisateurs inscrits
 $users = $pdo->query("SELECT email, pseudo, signup_date FROM users")->fetchAll(PDO::FETCH_ASSOC);
 
 // Récupérer les visites du jour
@@ -22,33 +22,27 @@ $total_signups = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Tableau de bord Admin - Ryuko</title>
     <style>
-        /* Ajouter un peu de style pour rendre le tableau plus joli */
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 8px 12px; border: 1px solid #ccc; }
-        th { background-color: #333; color: white; }
-        tr:nth-child(even) { background-color: #f9f9f9; }
+        /* Ton style CSS ici */
     </style>
 </head>
 <body>
-    <h1>Admin Dashboard</h1>
+    <h1>Tableau de bord Administrateur</h1>
+    <p>Total des visiteurs : <?= $total_visits; ?></p>
+    <p>Total des inscriptions : <?= $total_signups; ?></p>
+    <p>Visites aujourd'hui : <?= $visits_today; ?></p>
 
-    <p>Total Visitors: <?= $total_visits; ?></p>
-    <p>Total Signups: <?= $total_signups; ?></p>
-    <p>Visitors Today: <?= $visits_today; ?></p>
-
-    <h2>Registered Users</h2>
+    <h2>Utilisateurs inscrits</h2>
     <table>
         <tr>
             <th>Email</th>
             <th>Pseudo</th>
-            <th>Signup Date</th>
+            <th>Date d'inscription</th>
         </tr>
         <?php foreach ($users as $user): ?>
         <tr>
@@ -58,5 +52,7 @@ $total_signups = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
         </tr>
         <?php endforeach; ?>
     </table>
+
+    <a href="admin_logout.php">Déconnexion</a>
 </body>
 </html>
