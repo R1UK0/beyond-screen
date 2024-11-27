@@ -29,6 +29,30 @@
       <div class="g-recaptcha" data-sitekey="6Lf6DosqAAAAAHL_FKQwA725tum17ElfNvkCXoex"></div>
       <form id="register-form" action="register.php" method="POST">
       $responseKey = $_POST['g-recaptcha-response'];
+      $url = "https://www.google.com/recaptcha/api/siteverify";
+$data = [
+    'secret' => 'TA_CLE_SECRETE_ICI', // Ta clé secrète
+    'response' => $responseKey,
+    'remoteip' => $_SERVER['REMOTE_ADDR']
+];
+
+$options = [
+    CURLOPT_URL => $url,
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => $data,
+    CURLOPT_RETURNTRANSFER => true
+];
+
+$ch = curl_init();
+curl_setopt_array($ch, $options);
+$response = curl_exec($ch);
+curl_close($ch);
+
+$responseData = json_decode($response, true);
+if (!$responseData['success']) {
+    die("Captcha validation failed. Please try again.");
+}
+
 
 
       <button type="submit" class="primary-btn">Sign Up</button>
