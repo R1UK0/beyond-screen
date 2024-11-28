@@ -1,0 +1,6 @@
+CREATE TABLE admin_log (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255),
+    username VARCHAR(100),
+    signup_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
