@@ -290,3 +290,86 @@ footer {
     padding: 10px;
     margin-top: 20px;
 }
+
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #24292e;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+header a.btn {
+    background-color: #2ea44f;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header a.btn:hover {
+    background-color: #22863a;
+}
+
+/* Section principale */
+.hero {
+    text-align: center;
+    padding: 50px;
+    background-color: #0366d6;
+    color: white;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero .btn.large {
+    background-color: #2ea44f;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+}
+
+.feature {
+    width: 30%;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.feature h3 {
+    color: #0366d6;
+}
+
+footer {
+    background-color: #24292e;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
