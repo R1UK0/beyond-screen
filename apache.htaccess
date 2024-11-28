@@ -1,0 +1,4 @@
+<VirtualHost *:80>
+    ServerAlias *.yourhub.local
+    VirtualDocumentRoot /path/to/project-root/subdomains/%1
+</VirtualHost>
