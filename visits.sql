@@ -1,0 +1,5 @@
+CREATE TABLE visits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ip_address VARCHAR(50),
+    visit_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
