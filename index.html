@@ -1,155 +1,45 @@
-<?php
-session_start();
-if (!isset($_SESSION["user_id"])) {
-    header("Location: login.html");
-    exit;
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ryuko est une plateforme de codage en ligne qui vous permet d'écrire et de tester du code en temps réel.">
-  <meta name="keywords" content="coding, HTML, CSS, JavaScript, PHP, Python, editor">
-  <meta property="og:title" content="Ryuko - Code Editor Platform">
-  <meta property="og:description" content="Écrivez et testez vos projets en temps réel sur Ryuko.">
-  <meta property="og:image" content="images/code-screen.jpg">
-  <title>Ryuko - Code Editor Platform</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourHub - Welcome</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
-
 <body>
-  <header>
-    <div id="menu-container">
-      <button class="menu-btn" onclick="toggleMenu()">☰</button>
-      <div id="menu" class="menu">
-        <ul>
-          <li><a href="profile.html">Profile</a></li>
-          <li><a href="forum.html">Forum</a></li>
-          <li><a href="help.html">Help</a></li>
-        </ul>
-      </div>
-    </div>
-    <h1><a href="index.html">Ryuko</a></h1>
-    <nav>
-      <a href="login.html">Log In</a>
-      <a href="register.html">Sign Up</a>
-    </nav>
-  </header>
+    <header>
+        <h1><a href="index.html">YourHub</a></h1>
+        <nav>
+            <a href="login.html">Log In</a>
+            <a href="register.html">Sign Up</a>
+        </nav>
+    </header>
 
-  <!-- Image en haut de la page d'accueil -->
-  <section id="hero-image">
-    <div class="image-container">
-      <img src="images/code-screen.jpg" alt="Code Screen">
-      <h2 class="image-title">beyond the screen</h2>
-    </div>
-  </section>
+    <main>
+        <section class="hero">
+            <h2>Build, Host, and Share Your Code</h2>
+            <p>The best place to collaborate and showcase your coding projects.</p>
+            <a href="register.html" class="btn large">Get Started</a>
+        </section>
 
+        <section class="features">
+            <div class="feature">
+                <h3>Create Repositories</h3>
+                <p>Organize your code projects, track changes, and share with others.</p>
+            </div>
+            <div class="feature">
+                <h3>Collaborate with Teams</h3>
+                <p>Work together on code, pull requests, and project management.</p>
+            </div>
+            <div class="feature">
+                <h3>Get Insights</h3>
+                <p>Analyze your code contributions and repository statistics.</p>
+            </div>
+        </section>
+    </main>
 
-
-  <main>
-    <section>
-      <h2>About Ryuko</h2>
-      <p>
-        Welcome to **Ryuko**, a dynamic and powerful online platform designed to help you write, test, and refine your code across a variety of programming languages, including <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>Python</strong>, and <strong>PHP</strong>.
-      </p>
-      <br>
-      <p>
-        Whether you’re a beginner taking your first steps in coding or an experienced developer looking for a fast, convenient way to build and experiment, Ryuko has something for everyone. Our platform offers an intuitive, user-friendly interface that lets you focus solely on the code while we handle the environment.
-      </p>
-      <br>
-      <p>
-        <strong>What makes Ryuko special?</strong> We provide you with a real-time coding experience where you can instantly see the results of your work. No more switching between multiple windows or refreshing pages—everything updates automatically as you code. This lets you stay focused on your projects and watch your ideas come to life without interruptions.
-      </p>
-      <p>
-        But that's not all! With Ryuko, you can:
-      </p>
-      <br>
-      <ul>
-        <li><strong>Collaborate with ease</strong>: Share your code with others, or showcase your work to a community of like-minded individuals.</li>
-        <li><strong>Experiment freely</strong>: Test new features and technologies without the hassle of setting up complex environments.</li>
-        <li><strong>Save your progress</strong>: Automatically save your projects and continue where you left off, ensuring that your hard work is never lost.</li>
-        <li><strong>Access a wide range of languages</strong>: Work in multiple programming languages, including front-end and back-end technologies.</li>
-      </ul>
-      <p>
-        Whether you're creating your first HTML page, writing an interactive JavaScript application, or experimenting with server-side code in PHP or Python, Ryuko provides a seamless, integrated environment for all your coding needs. Plus, our platform is continuously updated with new features and improvements to make sure you're always on the cutting edge of web development.
-      </p>
-      <p>
-        So, what are you waiting for? Start coding now, explore the world of programming, experiment with different languages and frameworks, and bring your creative ideas to life. With Ryuko, the possibilities are endless!
-      </p>
-      <p>
-        Join us today and take your coding skills to the next level.
-      </p>
-    </section>
-    <section id="about-ryuko">
-      <h2>Qu'est-ce que Ryuko ?</h2>
-      <p>Ryuko est une plateforme de codage en ligne qui vous permet de créer et tester vos projets en temps réel dans plusieurs langages de programmation. Nous offrons un environnement intuitif et facile à utiliser, idéal pour les développeurs débutants comme expérimentés.</p>
-    
-      <h3>Comment l'utiliser ?</h3>
-      <p>Il suffit de vous inscrire et de vous connecter pour accéder à notre éditeur de code en ligne. Choisissez parmi une variété de langages comme HTML, CSS, JavaScript, PHP, et Python. Commencez à écrire votre code, visualisez le rendu instantanément et sauvegardez vos progrès directement sur la plateforme.</p>
-    
-      <h3>Avantages par rapport aux autres plateformes de codage en ligne :</h3>
-      <ul>
-        <li><strong>Interface utilisateur intuitive</strong> : Une interface claire et facile à utiliser pour commencer à coder immédiatement.</li>
-        <li><strong>Édition en temps réel</strong> : Voyez le résultat de votre code instantanément dans un aperçu interactif.</li>
-        <li><strong>Support pour plusieurs langages</strong> : Travaillez sur des projets utilisant HTML, CSS, JavaScript, PHP, Python, et plus encore !</li>
-        <li><strong>Sauvegarde automatique</strong> : Vos projets sont sauvegardés automatiquement à chaque modification pour éviter toute perte de travail.</li>
-        <li><strong>Collaboratif</strong> : Partagez vos projets avec d'autres utilisateurs ou montrez-les à la communauté.</li>
-        <li><strong>Pas d'installation nécessaire</strong> : Utilisez Ryuko directement depuis votre navigateur sans avoir à installer des outils complexes.</li>
-      </ul>
-    
-      <p>Rejoignez-nous dès aujourd'hui et commencez à coder avec Ryuko !</p>
-    </section>
-
-    
-
-    <!-- Ajout d'un bouton pour accéder à la zone de codage -->
-   <!-- Ajout d'un bouton interactif pour accéder à la zone de codage -->
-    <section>
-      <br>
-      <h2>Ready to start coding?</h2>
-      <p>Click the button below to access the code editor and begin writing your projects in HTML, CSS, JavaScript, and more!</p>
-      <a href="editor.html" class="access-editor-btn">Go to Code Editor</a>
-
-    </section>
-
-
-  </main>
-
-  <footer>
-    <p>&copy; 2024 Ryuko Code Editor Platform. All rights reserved.</p>
-    <p>-----------------------------------------------------</p>
-    <p>Developer: Matis Morfin | Co-developer: Lino Doux</p>
-    <p>Creation Date: 25/11/2024 | Last Update: 27/11/2024 | Version: v1.1.1</p>
-    <p><a href="contact.html">Contact Us</a> | <a href="help.html">Help</a></p>
-    <p><a href="admin.php">Admin Access</a></p>
-  </footer>
-  
-
-  <script>
-    // Supprime l'utilisateur connecté lorsque la page se charge
-    localStorage.removeItem("currentUser");
-
-    // Gestion de l'envoi du message de SAV
-    document.getElementById("send-feedback").addEventListener("click", function() {
-      const message = document.getElementById("help-message").value;
-      if (message) {
-        // Afficher un message temporaire de confirmation
-        document.getElementById("thank-you-message").style.display = "block";
-        setTimeout(function() {
-          document.getElementById("thank-you-message").style.display = "none";
-        }, 5000); // Afficher le message pendant 5 secondes
-        document.getElementById("help-message").value = ''; // Réinitialiser le champ de texte
-      } else {
-        alert("Please enter a message.");
-      }
-    });
-  </script>
-  <script src="menu.js"></script>
-
+    <footer>
+        <p>&copy; 2024 YourHub | <a href="admin.html">Admin Access</a></p>
+    </footer>
 </body>
 </html>
